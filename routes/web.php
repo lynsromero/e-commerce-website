@@ -63,8 +63,24 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('user/list', [UserController::class, 'index'])->name('users.list');
-    Route::get('products/list', [ProductController::class, 'index'])->name('products.list');
-    Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
+
+
+
+    Route::prefix('products')->group(function(){
+        Route::controller(ProductController::class)->group(function(){
+
+            Route::get('list', 'index')->name('products.list');
+            Route::get('create', 'create')->name('product.create');
+            Route::post('store', 'store')->name('product.store');
+            Route::get('edit/{id}', 'edit')->name('product.edit');
+            Route::get('delete/{id}', 'delete')->name('product.delete');
+            Route::post('update/{id}', 'update')->name('product.update');
+        });
+
+    });
+
+
+
     Route::get('dashboard', function () {
         return view('admin-panel.dashboard');
     })->name('dashboard');

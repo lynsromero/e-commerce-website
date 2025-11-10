@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Fruitables - Vegetable Website Template</title>
+  <title>Fruitables - Vegetable Website</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -53,7 +53,7 @@
         <div class="row g-4">
           <div class="col-lg-3">
             <a href="#">
-              <h1 class="text-primary mb-0">Fruitables</h1>
+              <h1 class="text-primary mb-0">{{ env('APP_NAME') }}</h1>
               <p class="text-secondary mb-0">Fresh products</p>
             </a>
           </div>

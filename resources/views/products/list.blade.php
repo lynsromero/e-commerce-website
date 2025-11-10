@@ -1,85 +1,66 @@
 @extends('admin-panel.layouts.app')
 
 @section('content')
-    <div class>
-      <div class="page-title">
-        <div class="title_left">
-          <h3>Products</h3>
-        </div>
-
-        <div class="title_right">
-          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
+  <div class>
+    @include('message')
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Products</h3>
       </div>
+    </div>
 
-      <div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="x_panel">
-            <div class="x_title">
-              <h2>Basic Tables <small>basic table subtitle</small></h2>
-              <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                      class="fa fa-wrench"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Settings 1</a>
-                    </li>
-                    <li><a href="#">Settings 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Products <small>List</small></h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
 
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Price</th>
+                  <th>Discount Price</th>
+                  <th>Category</th>
+                  <th>Sub Category</th>
+                  <th>Description</th>
+                  <th>image</th>
+                  <th>Action</th>
 
-            </div>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($products as $key => $product)
+                  <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $product->title }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->discount_price }}</td>
+                    <td>{{ $product->cat_name }}</td>
+                    <td>{{ $product->sub_name }}</td>
+                    <td>{{ $product->description }}</td>
+                    <td class="img-thumbnail">
+                      {!! $product->img() !!}
+                    </td>
+                    <td>
+                      <a href="{{ route('product.delete', $product->id) }}"><i class="fa fa-trash"></i></a>
+                      <a href="{{ route('product.edit' , $product->id) }}"><i class="fa fa-edit"></i></a>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+
+            </table>
+
           </div>
         </div>
       </div>
     </div>
+  </div>
 @endsection
