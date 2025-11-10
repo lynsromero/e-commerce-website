@@ -25,7 +25,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Title
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="title" class="form-control col-md-7 col-xs-12"
+                                    <input type="text" id="title" value="{{ old('title') }}" class="form-control col-md-7 col-xs-12"
                                         name="title">
                                     @error('title')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -36,7 +36,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">Price
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="price" name="price"
+                                    <input type="text" id="price" name="price" value="{{ old('price') }}"
                                         class="form-control col-md-7 col-xs-12">
                                     @error('price')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -47,7 +47,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="discount_price">Discount Price
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="discount_price" name="discount_price"
+                                    <input type="text" id="discount_price" name="discount_price" value="{{ old('discount_price') }}"
                                         class="form-control col-md-7 col-xs-12">
                                     @error('discount_price')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -94,7 +94,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea name="description" cols="30" class="form-control" rows="10"></textarea>
+                                    <textarea name="description" cols="30" class="form-control" rows="10">{{ old('description') }}</textarea>
                                     @error('description')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
