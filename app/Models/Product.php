@@ -16,9 +16,17 @@ class Product extends Model
         'image',
     ];
 
-    public function img(){
-        if($this->image){
-            return '<img src="'. asset($this->image) .'" alt="" width="80" height="80">';
+    public function img()
+    {
+        if ($this->image) {
+            return '<img src="' . asset($this->image) . '" alt="" width = "80px" , height = "80px" >';
         }
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class , 'category_id');
+    }
+    public function subcategory(){
+        return $this->belongsTo(SubCategory::class, 'sub_category_id');
     }
 }

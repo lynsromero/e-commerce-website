@@ -2,24 +2,20 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/', 'index')->name('home');
+});
 
 
 Route::get('admin/login', function () {
     return view('admin-panel.login');
 })->name('login');
-
-
-
-
-
-
 
 
 Route::get('shop', function () {

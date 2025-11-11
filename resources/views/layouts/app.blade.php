@@ -29,6 +29,8 @@
 
   <!-- Template Stylesheet -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  @stack('style')
+
 </head>
 
 <body>
@@ -162,6 +164,7 @@
 
   <!-- Template Javascript -->
   <script src="{{ asset('js/main.js') }}"></script>
+  @stack('scripts')
 </body>
 
 </html>
