@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
         $subCategories = SubCategory::all();
 
         foreach ($subCategories as $subCategory) {
-            Product::factory()->count(5)->create([
+            Product::factory()->count(6)->create([
                 'sub_category_id' => $subCategory->id,
                 'category_id' => $subCategory->category_id,
             ]);
