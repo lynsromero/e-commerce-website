@@ -381,32 +381,22 @@
             <div class="vesitable">
                 <div class="owl-carousel vegetable-carousel justify-content-center">
                     @foreach ($related_products as $product)
-
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="rounded position-relative fruite-item">
+                        <div class="fruite-item">
+                            <div class="rounded position-relative">
                                 <div class="fruite-img">
-                                    <img src="{{ asset($product->image) }}" class="img-fluid w-77 rounded-top"
-                                        style="height: 350px " alt="">
+                                    <img src="{{ asset($product->image) }}" class="img-fluid rounded-top" alt="">
                                 </div>
                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                     style="top: 10px; left: 10px;">
                                     {{ $product->subcategory->name }}
                                 </div>
                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                    <h4 style="font-size: 20px; font-weight: 400; width: 100%;
-                                    white-space: nowrap; 
-                                    overflow: hidden;      
-                                    text-overflow: ellipsis;">{{ $product->title }}</h4>
-                                    <p>{{ $product->description }}</p>
-                                    <div class="d-flex justify-content-between flex-lg-wrap"
-                                        style="display: flex !important; flex-direction: column;}">
-                                        <div>
-                                            <p class="text-dark fs-5 fw-bold mb-0">{{ $product->price }}$</p>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                        </div>
+                                    <h4 class="product-title">{{ $product->title }}</h4>
+                                    <p class="product-description">{{ $product->description }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="text-dark fs-5 fw-bold mb-0">{{ $product->price }}$</p>
+                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -418,3 +408,35 @@
     </div>
     <!-- Single Product End -->
 @endsection
+
+@push('styles')
+<style>
+    .fruite-item {
+        margin: 15px;
+    }
+    .fruite-img {
+        height: 250px;
+        overflow: hidden;
+    }
+    .fruite-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .product-title, .product-description {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+    .product-title {
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .product-description {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 15px;
+    }
+</style>
+@endpush
