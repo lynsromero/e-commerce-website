@@ -378,65 +378,72 @@
                 </div>
             </div>
             <h1 class="fw-bold mb-0">Related products</h1>
-            <div class="vesitable">
-                <div class="owl-carousel vegetable-carousel justify-content-center">
-                    @foreach ($related_products as $product)
-                        <div class="fruite-item">
-                            <div class="rounded position-relative">
-                                <div class="fruite-img">
-                                    <img src="{{ asset($product->image) }}" class="img-fluid rounded-top" alt="">
+            <div class="owl-carousel vegetable-carousel justify-content-center">
+                @foreach ($related_products as $product)
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{ asset($product->image) }}" class="img-fluid w-100 rounded-top" style="height: 300px"
+                                alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
+                            {{ $product->subcategory->name }}
+                        </div>
+                        <div class="p-4 rounded-bottom">
+                            <h4 style="font-size: 20px; font-weight: 400; width: 100%;
+                                            white-space: nowrap; 
+                                            overflow: hidden;      
+                                            text-overflow: ellipsis;">{{ $product->title }}</h4>
+                            <p>{{ $product->description }}</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap"
+                                style="display: flex !important; flex-direction: column;}">
+                                <div>
+                                    <p style="font-size: 18px; font-weight: 400; text-align: center;">{{ $product->price }}$</p>
                                 </div>
-                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                    style="top: 10px; left: 10px;">
-                                    {{ $product->subcategory->name }}
-                                </div>
-                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                    <h4 class="product-title">{{ $product->title }}</h4>
-                                    <p class="product-description">{{ $product->description }}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="text-dark fs-5 fw-bold mb-0">{{ $product->price }}$</p>
-                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                    </div>
+                                <div>
+                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
     <!-- Single Product End -->
+    <div class="container-fluid vesitable py-5">
+        <div class="container py-5">
+            <h1 class="fw-bold mb-0">Related products</h1>
+            <div class="owl-carousel vegetable-carousel justify-content-center">
+                @foreach ($related_products as $product)
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{ asset($product->image) }}" class="img-fluid w-100 rounded-top" style="height: 300px"
+                                alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
+                            {{ $product->subcategory->name }}
+                        </div>
+                        <div class="p-4 rounded-bottom">
+                            <h4 style="font-size: 20px; font-weight: 400; width: 100%;
+                                            white-space: nowrap; 
+                                            overflow: hidden;      
+                                            text-overflow: ellipsis;">{{ $product->title }}</h4>
+                            <p>{{ $product->description }}</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap"
+                                style="display: flex !important; flex-direction: column;}">
+                                <div>
+                                    <p style="font-size: 18px; font-weight: 400; text-align: center;">{{ $product->price }}$</p>
+                                </div>
+                                <div>
+                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 @endsection
-
-@push('styles')
-<style>
-    .fruite-item {
-        margin: 15px;
-    }
-    .fruite-img {
-        height: 250px;
-        overflow: hidden;
-    }
-    .fruite-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .product-title, .product-description {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100%;
-    }
-    .product-title {
-        font-size: 20px;
-        font-weight: 400;
-    }
-    .product-description {
-        font-size: 14px;
-        color: #777;
-        margin-bottom: 15px;
-    }
-</style>
-@endpush
