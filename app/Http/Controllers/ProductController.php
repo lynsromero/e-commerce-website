@@ -6,7 +6,7 @@ use App\Http\Requests\ProductValidation;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\SubCategory;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -50,12 +50,12 @@ class ProductController extends Controller
         $product = Product::find($id);
         $cats = Category::all();
         $Subcats = SubCategory::all();
-        return view('products.edit', compact('product' , 'cats' , 'Subcats'));
+        return view('products.edit', compact('product', 'cats', 'Subcats'));
     }
 
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id); 
+        $product = Product::findOrFail($id);
 
         $product->title = $request->title;
         $product->price = $request->price;
@@ -77,10 +77,26 @@ class ProductController extends Controller
         return redirect()->route('products.list')->with('success', 'Product updated successfully.');
     }
 
-    public function delete($id){
-        $product= Product::find($id);
+    public function delete($id)
+    {
+        $product = Product::find($id);
         $product->delete();
         return redirect()->route('products.list')->with('success', 'Product Deleted successfully.');
+    }
 
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+        $related_products = Product::where('category_id', $product->category_id)->where('id', '!=', $id)->limit(4)->get();
+        $catsCount = Category::withCount('products')->get();
+
+        $data = [
+            'product' => $product,
+            'related_products' => $related_products,
+            'cats' => $catsCount,
+            'sub_cat' => SubCategory::all(),
+        ];
+
+        return view('product-detail')->with($data);
     }
 }
