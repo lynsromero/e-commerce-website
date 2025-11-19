@@ -28,8 +28,8 @@
           <div class="navbar-nav mx-auto">
             <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
             <a href="{{ route('shop') }}" class="nav-item nav-link">Shop</a>
-            <a href="{{ route('product.detail') }}" class="nav-item nav-link">Product Detail</a>
             <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
+            <a href="{{ route('user.login') }}" class="nav-item nav-link">Log In</a>
           </div>
           <div class="d-flex m-3 me-0">
             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"

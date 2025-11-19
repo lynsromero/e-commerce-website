@@ -22,8 +22,8 @@
                                   text-overflow: ellipsis;">{{ $product->description }}</p>
         <div class="d-flex justify-content-between flex-lg-wrap">
           <p class="text-dark fs-5 fw-bold mb-0">{{ $product->price }}$</p>
-          <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primaryadd_to_cart" data-product_id="{{ $product->id }}"><i
-              class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+          <a href="{{route('product-detail' , $product->id)}}" class="btn border border-secondary rounded-pill px-3 text-primaryadd_to_cart" data-product_id="{{ $product->id }}"><i
+              class="fa fa-shopping-bag me-2 text-primary"></i> Details </a>
         </div>
       </div>
     </div>

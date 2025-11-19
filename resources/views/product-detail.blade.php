@@ -222,7 +222,7 @@
                                     @foreach ($cats as $cat)
                                         <li data-cat_id="{{ $cat->id }}" class="cat_li">
                                             <div class="d-flex justify-content-between fruite-name">
-                                                <a href="javascript:void(0)">
+                                                <a href="{{ route('shop') }}">
                                                     @if ($cat->name === 'Electronics')
                                                         <i class="fas fa-tv me-2"></i>
                                                     @elseif ($cat->name === 'Clothing')
