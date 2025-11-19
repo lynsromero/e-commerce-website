@@ -86,7 +86,7 @@
         dots: true,
         loop: true,
         margin: 25,
-        nav : true,
+        nav : false,
         navText : [
             '<i class="bi bi-arrow-left"></i>',
             '<i class="bi bi-arrow-right"></i>'

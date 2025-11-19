@@ -47,7 +47,7 @@
                       {!! $product->img() !!}
                     </td>
                     <td>
-                      <a href="{{ route('product.delete', $product->id) }}"><i class="fa fa-trash"></i></a>
+                      <a href="{{ route('product.delete', $product->id) }}"><i class="fa fa-trash"></i></a> |||
                       <a href="{{ route('product.edit' , $product->id) }}"><i class="fa fa-edit"></i></a>
                     </td>
                   </tr>

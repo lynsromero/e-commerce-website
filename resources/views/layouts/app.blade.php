@@ -1,3 +1,8 @@
+@php
+  use App\Models\Cart;
+  $cart_counter = Cart::where('user_id', Auth::id())->count();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,18 +24,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Libraries Stylesheet -->
-  
+
   <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
- 
+
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Template Stylesheet -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-  @stack('style')
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body>
@@ -45,7 +50,7 @@
   @include('layouts.navbar')
 
 
- @yield('content')
+  @yield('content')
 
 
   <!-- Footer Start -->
@@ -157,14 +162,34 @@
   <!-- JavaScript Libraries -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
-    <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
+  <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+  <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
+  <script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
+  <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <!-- Template Javascript -->
   <script src="{{ asset('js/main.js') }}"></script>
   @stack('scripts')
+
+  <script>
+    $(document).on('click', '.add_to_cart', function () {
+
+      var product_id = $(this).data('product_id');
+
+      $.ajax({
+        url: '{{route("add.cart")}}',
+        type: 'GET',
+        data: { product_id },
+        success: function (response) {
+          if (response.success) {
+            toastr.success(response.message);
+            $(document).find('.cart_counter').text(response.cart_counter);
+          }
+
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

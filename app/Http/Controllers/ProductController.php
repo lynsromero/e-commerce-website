@@ -87,7 +87,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        $related_products = Product::where('category_id', $product->category_id)->where('id', '!=', $id)->limit(4)->get();
+        $related_products = Product::where('sub_category_id', $product->sub_category_id)->where('id', '!=', $id)->limit(4)->get();
         $catsCount = Category::withCount('products')->get();
 
         $data = [
@@ -99,4 +99,5 @@ class ProductController extends Controller
 
         return view('product-detail')->with($data);
     }
+
 }

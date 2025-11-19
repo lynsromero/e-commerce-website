@@ -16,14 +16,17 @@
                             white-space: nowrap; 
                             overflow: hidden;      
                             text-overflow: ellipsis;">{{ $product->title }}</h4>
-        <p>{{ $product->description }}</p>
+        <p style="font-size: 20px; font-weight: 400; width: 100%;
+                            white-space: nowrap; 
+                            overflow: hidden;      
+                            text-overflow: ellipsis;">{{ $product->description }}</p>
         <div class="d-flex justify-content-between flex-lg-wrap" style="display: flex !important; flex-direction: column;}">
           <div>
             <p class="text-dark fs-5 fw-bold mb-0">{{ $product->price }}$</p>
           </div>
           <div>
-            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+            <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary add_to_cart" data-product_id="{{ $product->id }}"><i
+                class="fa fa-shopping-bag me-2 text-primary add_to_cart" data-product_id="{{ $product->id }}"></i> Add to cart</a>
           </div>
         </div>
       </div>

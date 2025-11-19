@@ -63,7 +63,7 @@
 
                               {{ $cat->name }}
                             </a>
-                            <span>(3)</span>
+                            <span>({{ $cat->products_count }})</span>
                           </div>
                         </li>
                       @endforeach

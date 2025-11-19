@@ -204,15 +204,14 @@
                                     white-space: nowrap; 
                                     overflow: hidden;      
                                     text-overflow: ellipsis;">{{ $product->title }}</h4>
-                      <p>{{ $product->description }}</p>
                       <div class="d-flex justify-content-between flex-lg-wrap"
                         style="display: flex !important; flex-direction: column;}">
                         <div>
                           <p style="font-size: 18px; font-weight: 400; text-align: center;">{{ $product->price }}$</p>
                         </div>
                         <div>
-                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                              class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                          <a href="{{ route('product-detail', $product->id) }}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                              class="fa fa-shopping-bag me-2 text-primary"></i> Details</a>
 
                         </div>
                       </div>
@@ -284,7 +283,7 @@
                           <i class="fas fa-star"></i>
                         </div>
                         <h4 class="mb-3">3.12 $</h4>
-                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                        <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                             class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                       </div>
                     </div>
@@ -307,7 +306,7 @@
                           <i class="fas fa-star"></i>
                         </div>
                         <h4 class="mb-3">3.12 $</h4>
-                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                        <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                             class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                       </div>
                     </div>
@@ -330,7 +329,7 @@
                           <i class="fas fa-star"></i>
                         </div>
                         <h4 class="mb-3">3.12 $</h4>
-                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                        <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                             class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                       </div>
                     </div>
@@ -353,7 +352,7 @@
                           <i class="fas fa-star"></i>
                         </div>
                         <h4 class="mb-3">3.12 $</h4>
-                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                        <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                             class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                       </div>
                     </div>
@@ -376,7 +375,7 @@
                           <i class="fas fa-star"></i>
                         </div>
                         <h4 class="mb-3">3.12 $</h4>
-                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                        <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                             class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                       </div>
                     </div>
@@ -399,7 +398,7 @@
                           <i class="fas fa-star"></i>
                         </div>
                         <h4 class="mb-3">3.12 $</h4>
-                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                        <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                             class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                       </div>
                     </div>
@@ -418,7 +417,7 @@
                         <i class="fas fa-star"></i>
                       </div>
                       <h4 class="mb-3">3.12 $</h4>
-                      <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                      <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                           class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                     </div>
                   </div>
@@ -436,7 +435,7 @@
                         <i class="fas fa-star"></i>
                       </div>
                       <h4 class="mb-3">3.12 $</h4>
-                      <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                      <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                           class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                     </div>
                   </div>
@@ -454,7 +453,7 @@
                         <i class="fas fa-star"></i>
                       </div>
                       <h4 class="mb-3">3.12 $</h4>
-                      <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                      <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                           class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                     </div>
                   </div>
@@ -472,7 +471,7 @@
                         <i class="fas fa-star"></i>
                       </div>
                       <h4 class="mb-3">3.12 $</h4>
-                      <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                      <a href="{{Auth::user() ? 'javascript:void(0);' : route('user.login')}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                           class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                     </div>
                   </div>
@@ -644,6 +643,7 @@
                 }
               });
             });
+
           </script>
 
 
