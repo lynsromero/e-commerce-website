@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserPanel\ProfileController;
@@ -111,4 +112,10 @@ Route::get('logout', [UserLoginController::class, 'logout'])->name('user.logout'
 
 Route::middleware('auth.role:2,3')->group(function () {
     Route::get('checkout', [CheckoutController::class , 'checkout'])->name('checkout');
+    Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('/payment-confirmation', 'index')->name('stripe.index');
+    Route::post('/stripe', 'store')->name('stripe.store');
 });
+});
+
+

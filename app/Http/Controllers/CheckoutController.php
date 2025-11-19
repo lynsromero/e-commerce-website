@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
     public function checkout(Request $request)
     {
         $carts = Cart::where('user_id', Auth::id())->where('quantity', '!=', 0)->get();
-
+        $user = Auth::user();
         $total_payout = 0;
 
         foreach ($carts as $cart) {
@@ -21,7 +21,8 @@ class CheckoutController extends Controller
 
         $data = [
             'total_payout' => $total_payout,
-            'carts' => $carts
+            'carts' => $carts,
+            'user' => $user,
         ];
 
         return view('checkout')->with($data);
